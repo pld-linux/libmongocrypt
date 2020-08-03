@@ -19,6 +19,7 @@ BuildRequires:	cmake >= 3.5
 BuildRequires:	libbson-devel >= 1.11
 BuildRequires:	libstdc++-devel
 BuildRequires:	openssl-devel
+BuildRequires:	pkgconfig
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
