@@ -1,0 +1,3 @@
+# libmongocrypt
+
+The libmongocrypt package
