@@ -1,0 +1,22 @@
+--- libmongocrypt-1.0.4/CMakeLists.txt~	2020-05-13 21:08:12.000000000 +0200
++++ libmongocrypt-1.0.4/CMakeLists.txt	2021-10-06 22:18:39.746913269 +0200
+@@ -93,7 +93,7 @@
+    # TODO: add support for clang-cl which is detected as MSVC
+ else()
+    # GNU, Clang, AppleClang
+-   set(CMAKE_C_FLAGS  "${CMAKE_C_FLAGS} -Wall -Werror -Wno-missing-braces")
++   set(CMAKE_C_FLAGS  "${CMAKE_C_FLAGS} -Wall -Wno-missing-braces")
+ endif()
+ 
+ # Choose a Crypto provider
+--- libmongocrypt-1.0.4/kms-message/CMakeLists.txt~	2020-05-13 21:08:12.000000000 +0200
++++ libmongocrypt-1.0.4/kms-message/CMakeLists.txt	2021-10-06 22:19:10.140304513 +0200
+@@ -94,7 +94,7 @@
+ endif ()
+ 
+ if ( CMAKE_COMPILER_IS_GNUCC )
+-    set(CMAKE_C_FLAGS  "${CMAKE_C_FLAGS} -Wall -Wno-unused-function -Wsign-compare -Werror")
++    set(CMAKE_C_FLAGS  "${CMAKE_C_FLAGS} -Wall -Wno-unused-function -Wsign-compare")
+ endif()
+ if ( MSVC )
+     # W4273 - inconsistent dll linkage

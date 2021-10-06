@@ -5,7 +5,7 @@
 Summary:	The companion C library for client side encryption in drivers
 Name:		libmongocrypt
 Version:	1.0.4
-Release:	1
+Release:	2
 # see kms-message/THIRD_PARTY_NOTICES
 # kms-message/src/kms_b64.c is ISC
 # everything else is ASL 2.0
@@ -13,6 +13,7 @@ License:	ASL 2.0 and ISC
 Group:		Libraries
 Source0:	https://github.com/mongodb/libmongocrypt/archive/%{version}/%{name}-%{version}.tar.gz
 # Source0-md5:	e8939c3ed5c8b797dd8d4ea1290f7652
+Patch0:		no-Werror.patch
 URL:		https://github.com/mongodb/libmongocrypt
 BuildRequires:	cmake >= 3.5
 %{?with_apidocs:BuildRequires:	doxygen}
@@ -36,6 +37,7 @@ This package contains the header files and development libraries for
 
 %prep
 %setup -q
+%patch0 -p1
 echo "%{version}" > VERSION_CURRENT
 
 %build
