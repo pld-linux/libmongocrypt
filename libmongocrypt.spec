@@ -1,6 +1,6 @@
 #
 # Conditional build:
-%bcond_without	apidocs		# do not build and package API docs
+%bcond_without	apidocs		# Doxygen API documentation
 
 Summary:	The companion C library for client side encryption in drivers
 Summary(pl.UTF-8):	Biblioteka towarzysząca C do szyfrowania w sterownikach po stronie klienta
@@ -22,6 +22,8 @@ BuildRequires:	libbson-devel >= 1.11
 BuildRequires:	libstdc++-devel
 BuildRequires:	openssl-devel
 BuildRequires:	pkgconfig
+BuildRequires:	rpm-build >= 4.6
+BuildRequires:	rpmbuild(macros) >= 1.605
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -44,6 +46,18 @@ libmongocrypt library.
 %description devel -l pl.UTF-8
 Ten pakiet zawiera pliki nagłówkowe i inne pliki programistyczne
 biblioteki libmongocrypt.
+
+%package apidocs
+Summary:	API documentation for libmongocrypt library
+Summary(pl.UTF-8):	Dokumentacja API biblioteki libmongocrypt
+Group:		Documentation
+BuildArch:	noarch
+
+%description apidocs
+API documentation for libmongocrypt library.
+
+%description apidocs -l pl.UTF-8
+Dokumentacja API biblioteki libmongocrypt.
 
 %prep
 %setup -q
@@ -89,9 +103,6 @@ rm -rf $RPM_BUILD_ROOT
 %files devel
 %defattr(644,root,root,755)
 %doc *.md
-%if %{with apidocs}
-%doc doc/html
-%endif
 %{_libdir}/libkms_message.so
 %{_libdir}/libmongocrypt.so
 %{_includedir}/kms_message
@@ -100,3 +111,9 @@ rm -rf $RPM_BUILD_ROOT
 %{_libdir}/cmake/mongocrypt
 %{_pkgconfigdir}/libkms_message.pc
 %{_pkgconfigdir}/libmongocrypt.pc
+
+%if %{with apidocs}
+%files apidocs
+%defattr(644,root,root,755)
+%doc doc/html/*
+%endif
