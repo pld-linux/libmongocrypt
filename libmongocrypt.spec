@@ -3,6 +3,7 @@
 %bcond_without	apidocs		# do not build and package API docs
 
 Summary:	The companion C library for client side encryption in drivers
+Summary(pl.UTF-8):	Biblioteka towarzysząca C do szyfrowania w sterownikach po stronie klienta
 Name:		libmongocrypt
 Version:	1.0.4
 Release:	2
@@ -26,14 +27,23 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 %description
 The companion C library for client side encryption in drivers.
 
+%description -l pl.UTF-8
+Biblioteka towarzysząca C do szyfrowania w sterownikach po stronie
+klienta.
+
 %package devel
-Summary:	Header files and development libraries for %{name}
+Summary:	Header files for libmongocrypt library
+Summary(pl.UTF-8):	Pliki nagłówkowe biblioteki libmongocrypt
 Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
 
 %description devel
-This package contains the header files and development libraries for
-%{name}.
+This package contains the header files and other development files for
+libmongocrypt library.
+
+%description devel -l pl.UTF-8
+Ten pakiet zawiera pliki nagłówkowe i inne pliki programistyczne
+biblioteki libmongocrypt.
 
 %prep
 %setup -q
