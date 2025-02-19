@@ -37,7 +37,7 @@ This package contains the header files and development libraries for
 
 %prep
 %setup -q
-%patch0 -p1
+%patch -P0 -p1
 echo "%{version}" > VERSION_CURRENT
 
 %build
