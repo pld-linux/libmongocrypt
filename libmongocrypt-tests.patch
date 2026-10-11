@@ -1,0 +1,18 @@
+--- libmongocrypt-1.15.2/CMakeLists.txt.orig	2026-10-11 19:20:50.552855168 +0200
++++ libmongocrypt-1.15.2/CMakeLists.txt	2026-10-11 19:50:05.980011869 +0200
+@@ -463,7 +463,6 @@ if (BUILD_TESTING)
+          OUTPUT_NAME "mongo_crypt_v1"
+          )
+    endif ()
+-endif ()
+ 
+ set (TEST_MONGOCRYPT_SOURCES
+    test/test-gcp-auth.c
+@@ -615,6 +614,7 @@ if (NOT MONGOCRYPT_CRYPTO STREQUAL none)
+       target_link_libraries (csfle PRIVATE _mongocrypt::mongoc)
+    endif ()
+ endif ()
++endif ()  # BUILD_TESTING
+ 
+ if (ENABLE_STATIC)
+    set (TARGETS_TO_INSTALL mongocrypt mongocrypt_static)

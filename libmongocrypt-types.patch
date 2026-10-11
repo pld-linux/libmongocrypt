@@ -1,0 +1,11 @@
+--- libmongocrypt-1.15.2/kms-message/test/test_kms_request.c.orig	2025-09-15 14:54:01.000000000 +0200
++++ libmongocrypt-1.15.2/kms-message/test/test_kms_request.c	2026-10-11 19:30:31.383041874 +0200
+@@ -1116,7 +1116,7 @@ kms_request_kmip_prohibited_test (void)
+ static int
+ count_substrings (const char *big, const char *little)
+ {
+-   char *iter;
++   const char *iter;
+    int count = 0;
+ 
+    iter = strstr (big, little);
